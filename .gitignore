@@ -1,0 +1,10 @@
+# Node.js
+node_modules/
+
+# env
+config/
+.env
+.env.local
+.env.development
+.env.test
+.env.production
