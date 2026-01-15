@@ -1,0 +1,58 @@
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { FaLocationArrow, FaPhone } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
+import { Context } from "../main";
+
+const Footer = () => {
+    const { isAuthenticated } = useContext(Context);
+
+    if (!isAuthenticated) return null;
+
+    return (
+        <footer>
+            <hr />
+            <div className="content">
+                <div>
+                    <img src="/logo.png" alt="AIIMS Delhi" style={{ width: "90px", height: "90px", objectFit: "contain" }} />
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <Link to={"/"}>Dashboard</Link>
+                        <Link to={"/messages"}>Messages</Link>
+                        <Link to={"/doctors"}>Doctors</Link>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Administrative Support</h4>
+                    <p style={{ color: "gray", fontSize: "16px", lineHeight: "1.5" }}>
+                        The Administration panel provides overview controls for maintaining operations, adding personnel, and validating appointments.
+                    </p>
+                </div>
+                <div>
+                    <h4>Contact Support</h4>
+                    <div>
+                        <FaPhone />
+                        <span>999-999-9200</span>
+                    </div>
+                    <div>
+                        <MdEmail />
+                        <span>admin@aiimsdelhi.edu.in</span>
+                    </div>
+                    <div>
+                        <FaLocationArrow />
+                        <span>New Delhi, India</span>
+                    </div>
+                </div>
+            </div>
+            <div style={{ textAlign: "center", padding: "15px 0 5px 0", borderTop: "1px solid rgba(0,0,0,0.08)", marginTop: "15px" }}>
+                <p style={{ margin: 0, fontSize: "14px", color: "#666" }}>
+                    &copy; {new Date().getFullYear()} AIIMS Delhi Dashboard. Developed solely by <strong>Arghya Mishra</strong>.
+                </p>
+            </div>
+        </footer>
+    );
+};
+
+export default Footer;
